@@ -1,0 +1,26 @@
+{
+  "name": "x3tech/caldav-client",
+  "description": "Simple to use CalDAV Client inspired by simpleCalDav",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "3onyc",
+      "email": "3onyc@x3tech.com"
+    }
+  ],
+  "require": {
+    "sabre/dav": "~3.2.2",
+    "sabre/vobject": "~4.1.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "x3tech\\CaldavClient\\": "src/",
+      "x3tech\\CaldavClient\\Test\\": "test/"
+    }
+  },
+  "require-dev": {
+    "phpstan/phpstan": "^0.9.1",
+    "squizlabs/php_codesniffer": "^3.1"
+  }
+}
