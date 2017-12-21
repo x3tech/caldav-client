@@ -4,6 +4,7 @@ namespace x3tech\CaldavClient;
 
 use Sabre\VObject;
 
+use DateInterval;
 use DateTimeInterface;
 use DateTimeImmutable;
 
@@ -68,6 +69,14 @@ class Calendar
 
         $start = $today->setTime(0, 0, 0);
         $end = $today->setTime(23, 59, 59);
+
+        return $this->getEvents($start, $end);
+    }
+
+    public function getFutureEvents(?DateInterval $timespan = null) : array
+    {
+        $start = new DateTimeImmutable('tomorrow');
+        $end = $timespan ? $start->add($timespan) : null;
 
         return $this->getEvents($start, $end);
     }
