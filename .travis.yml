@@ -1,0 +1,7 @@
+language: php
+install: composer install
+script: make ci
+php:
+  - "7.1"
+  - "7.2"
+  - "nightly"
