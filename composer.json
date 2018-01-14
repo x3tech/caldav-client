@@ -10,6 +10,7 @@
     }
   ],
   "require": {
+    "php": ">= 7.1.0",
     "sabre/dav": "~3.2.2",
     "sabre/vobject": "~4.1.3"
   },
