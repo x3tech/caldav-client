@@ -246,7 +246,11 @@ class CaldavClient
                     $val = $child->getValue();
                 }
             }
-            $result[$child->name] = $val;
+
+            // Can have multiple of the same, first one's the charm for now
+            if (!array_key_exists($child->name, $result)) {
+                $result[$child->name] = $val;
+            }
         }
         return $result;
     }
