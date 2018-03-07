@@ -44,9 +44,23 @@ class Calendar
             $filters['VCALENDAR']['VEVENT']['c:time-range']['end'] = $end->format('Ymd\THis\Z');
         }
 
-        $result = $this->dav->report($this->url, 'c:calendar-query', [
-            'c:calendar-data',
-        ], $filters, 1);
+        // Auto-expand recurring events
+        if ($start && $end) {
+            $props = [
+                'c:calendar-data' => [
+                    'c:expand' => [
+                        'attributes' => [
+                            'start' => $start->format('Ymd\THis\Z'),
+                            'end' => $end->format('Ymd\THis\Z'),
+                        ],
+                    ],
+                ],
+            ];
+        } else {
+            $props = ['c:calendar-data'];
+        }
+
+        $result = $this->dav->report($this->url, 'c:calendar-query', $props, $filters, 1);
 
         $events = [];
         foreach ($result as $url => $data) {
