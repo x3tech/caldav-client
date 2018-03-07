@@ -195,7 +195,7 @@ class CaldavClient
     ) : array {
         $xml = [
             'd:prop' => array_map(function ($p) {
-                return ['name' => $p];
+                return is_array($p) ? $p : ['name' => $p];
             }, $props),
         ];
         if (count($filters)) {
