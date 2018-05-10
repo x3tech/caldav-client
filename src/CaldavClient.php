@@ -241,7 +241,6 @@ class CaldavClient
                     foreach ($child->parameters as $parameter) {
                         $val[$parameter->name] = $parameter->getValue();
                     }
-                    print_r($val);
                 } else {
                     $val = $child->getValue();
                 }
