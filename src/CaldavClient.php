@@ -36,7 +36,7 @@ class CaldavClient
         $this->user = $user;
         $this->password = $password;
 
-        $this->xml = new Xml\Service;
+        $this->xml = new Xml\Service();
         $this->xml->namespaceMap = [
             'DAV:' => 'd',
             self::CALDAV_NS => 'c',
